@@ -1,0 +1,24 @@
+struct Node {
+  mandatory id,
+  optional next,
+}
+
+fn sum(n) {
+  let s = 0;
+  while (n > 0) {
+    s = s + n;
+    n = n - 1;
+  }
+  return s;
+}
+
+let arr = [1, 2, 3]
+println(len(arr), sum(5))
+
+let a = new Node { id: 1 }
+let b = new Node { id: 2 }
+a.next = b
+println(a.next.id)
+b.id = null
+println(a.next)
+

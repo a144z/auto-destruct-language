@@ -1,0 +1,21 @@
+struct Node {
+  mandatory id,
+  optional next,
+}
+
+let a = new Node { id: 1 }
+let b = new Node { id: 2 }
+let c = new Node { id: 3 }
+
+// link
+a.next = b
+b.next = c
+
+print(a.next.id)
+
+// Removing mandatory field id from b should cascade delete b and any dependent mandatory refs
+b.id = null
+
+// After cascade, a.next should be null
+print(a.next)
+
